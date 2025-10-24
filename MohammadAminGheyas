@@ -1,27 +1,36 @@
+1: ساخت فولدرهای تو در تو
 mkdir -p ~/projects/{frontend,backend,docs} && 
 echo $(date)"
+2: ساخت فایل متنی با تاریخ
 echo "This file was created on $(date)" > report.txt && 
 cat report.txt
+3: کپی همه فایل‌های txt
 for f in ~/source/*.txt; do 
   cp "$f" ~/backup/ && echo: $f"; 
 done
+4: انتقال فایل‌های قدیمی به آرشیو
 find ~/logs -type f -mtime +7 -exec mv {} ~/logs/archive/ \; && 
 echo 
+5: حذف فایل‌های خالی
 find . -type f -empty -print && 
 find . -type f -empty -delete
+6: ترکیب چند فایل متنی
 cat notes1.txt notes2.txt notes3.txt > all_notes.txt && 
 echo : all_notes.txt"
+7: تغییر نام گروهی فایل‌ها
 for f in *.jpg; do 
   mv "$f" "photo_$(date +%F)_$f"; 
 done
+8: شماره‌گذاری خطوط فایل
 nl input.txt > numbered.txt && 
 echo numbered.txt
+9: بررسی تفاوت دو فایل
 diff file1.txt file2.txt > diff_report.txt && 
 cat diff_report.txt
+10: ساخت ۱۰۰ فایل تستی
 for i in {001..100}; do 
   echo "Test file $i" > "file_$i.txt"; 
 done
-dd if=/dev/urandom of=random_test.bin bs=1M count=5 && 
-ls -lh random_test.bin
+11: پیدا کردن بزرگ‌ترین فایل‌ها در مسیر فعلی و ذخیره در فایل لیست
 du -ah . | sort -rh | head -n 20 > biggest_files.txt && 
 cat biggest_files.txt

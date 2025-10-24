@@ -1,0 +1,27 @@
+mkdir -p ~/projects/{frontend,backend,docs} && 
+echo $(date)"
+echo "This file was created on $(date)" > report.txt && 
+cat report.txt
+for f in ~/source/*.txt; do 
+  cp "$f" ~/backup/ && echo: $f"; 
+done
+find ~/logs -type f -mtime +7 -exec mv {} ~/logs/archive/ \; && 
+echo 
+find . -type f -empty -print && 
+find . -type f -empty -delete
+cat notes1.txt notes2.txt notes3.txt > all_notes.txt && 
+echo : all_notes.txt"
+for f in *.jpg; do 
+  mv "$f" "photo_$(date +%F)_$f"; 
+done
+nl input.txt > numbered.txt && 
+echo numbered.txt
+diff file1.txt file2.txt > diff_report.txt && 
+cat diff_report.txt
+for i in {001..100}; do 
+  echo "Test file $i" > "file_$i.txt"; 
+done
+dd if=/dev/urandom of=random_test.bin bs=1M count=5 && 
+ls -lh random_test.bin
+du -ah . | sort -rh | head -n 20 > biggest_files.txt && 
+cat biggest_files.txt
